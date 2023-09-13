@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+    <string name="quiz_app">Quiz App</string>
+    <string name="e_g_suyash">e.g. Suyash</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="welcome">Welcome</string>
+    <string name="start">Start</string>
+    <string name="quiz_image">Quiz image</string>
+    <string name="submit">SUBMIT</string>
+    <string name="finish">FINISH</string>
+</resources>
