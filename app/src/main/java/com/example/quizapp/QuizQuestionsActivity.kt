@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -33,10 +34,16 @@ class QuizQuestionsActivity : AppCompatActivity() , View.OnClickListener {
 
     private var btnSubmit: Button? = null
 
+    private var mUserName: String? = null
+    private var mCorrectAnswers: Int = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
+
+
+        mUserName = intent.getStringExtra(Constants.USER_NAME)
 
 
         tvQuestion = findViewById(R.id.tv_question)/* hold ctrl and click on the id to go there */
@@ -193,6 +200,20 @@ class QuizQuestionsActivity : AppCompatActivity() , View.OnClickListener {
                         }
                         else -> {
                             Toast.makeText(this, "You made it to the end", Toast.LENGTH_LONG).show()
+
+                            val intent = Intent(this, ResultsActivity::class.java)
+
+                            // mUserName ko Constants.USER_NAME me daal ke bhej rahe hain
+
+                            // ya fir hum keh sakte hain mUserName ki value ko Constants.USER_NAME me
+                            // daal rahe hain aur Constants.USER_NAME ko bhej rahe hain
+                            intent.putExtra(Constants.USER_NAME, mUserName)
+                            intent.putExtra(Constants.CORRECT_ANSWERS, mCorrectAnswers)
+                            intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList?.size)
+
+                            startActivity(intent)
+                            finish()
+
                         }
                     }
                 }
@@ -202,6 +223,8 @@ class QuizQuestionsActivity : AppCompatActivity() , View.OnClickListener {
 
                     if (question!!.correctAnswer != mSelectedOptionPosition)
                         answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg )
+                    else
+                        mCorrectAnswers++
 
 
                     answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
