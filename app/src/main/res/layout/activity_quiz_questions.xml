@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#B9F6CA"
+    android:background="#212121"
     tools:context=".QuizQuestionsActivity">
     
     <LinearLayout
@@ -23,7 +23,7 @@
             android:layout_margin="10dp"
             android:gravity="center"
             android:textSize="22sp"
-            android:textColor="#2E2727"
+            android:textColor="#CDBBBB"
 
             tools:text="What country does this flag belong to?"
 
@@ -68,6 +68,7 @@
                 android:padding="15dp"
                 android:textSize="14sp"
                 tools:text="0/10"
+                android:textColor="#CDBBBB"
 
                 />
 
